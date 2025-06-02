@@ -359,7 +359,7 @@ export const makePopup = (layer: Layer | any, json: IDClassObject) => {
           <div>
             <ul className="my-2 ml-6 list-disc [&>li]:mt-2">
               <li>Recipe: {data["Recipe"]}</li>
-              <li>Clock Speed: {data["ManuSpeed"]}%  Productivity: {Math.round(data.Productivity)}% </li>
+              <li>Clock Speed: {Math.round(data.ManuSpeed * 100) / 100}%  Productivity: {Math.round(data.Productivity * 100) / 100}% </li>
               <li>
                 Circuit Group:{" "}
                 {data.PowerInfo.CircuitGroupID === -1
