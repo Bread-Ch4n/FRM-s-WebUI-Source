@@ -359,7 +359,7 @@ export const makePopup = (layer: Layer | any, json: IDClassObject) => {
           <div>
             <ul className="my-2 ml-6 list-disc [&>li]:mt-2">
               <li>Recipe: {data["Recipe"]}</li>
-              <li>Manu Speed: {data["ManuSpeed"]}%  Productivity: {Math.round(data.Productivity)}% </li>
+              <li>Clock Speed: {data["ManuSpeed"]}%  Productivity: {Math.round(data.Productivity)}% </li>
               <li>Circuit Group: {data.PowerInfo.CircuitGroupID} Circuit: {data.PowerInfo.CircuitID}</li>
             </ul>
             <div className={"gap-1 flex flex-col"}>
