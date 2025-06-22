@@ -22,7 +22,7 @@ export function drop_pod(data: DropPod) {
     description: (
       <div>
         <div className={"flex flex-col items-center " + "gap-1"}>
-          {!isOpen && data.RequiredItem.Name != "N/A" && (
+          {!isOpen && !requiresPower && data.RequiredItem.Name != "N/A" && (
             <Badge
               style={{
                 backgroundColor: `hsla(${popup_color}, 0.2)`,

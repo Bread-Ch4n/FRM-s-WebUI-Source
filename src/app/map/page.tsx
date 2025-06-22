@@ -1586,7 +1586,7 @@ export default function MapPage() {
     <div>
       <div className="absolute bottom-0 left-1/2 w-1/2 -translate-x-1/2 flex flex-col z-20">
         <div className={"relative h-10"}>
-          <div className="flex absolute h-10 left-0 z-2 w-60">
+          <div className="flex absolute h-10 left-0 z-2 w-65 ">
             <div
               className="bg-card border-t border-l p-1 text-sm whitespace-nowrap w-fit rounded-tl-md border-b-0 flex items-center"
               style={{ fontSize: "initial" }}
@@ -1768,7 +1768,7 @@ export default function MapPage() {
                       ease: "anticipate",
                       duration: 1.5,
                     }}
-                    className="flex p-3 space-x-2 ml-60 mr-35"
+                    className="flex p-3 space-x-2 ml-65 mr-35"
                   >
                     <Input
                       placeholder="Type your message..."
