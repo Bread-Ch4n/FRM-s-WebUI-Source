@@ -967,8 +967,6 @@ export default function MapPage() {
       return info;
     }
     renderLayers() {
-      const visible = nyaa["hypertubes"].visible;
-
       return [
         new IconLayer({
           coordinateSystem: COORDINATE_SYSTEM.CARTESIAN,
@@ -1070,6 +1068,21 @@ export default function MapPage() {
             : d.RequiredPower != 0
               ? icons.Drop_Pods.Power
               : icons.Drop_Pods.Not_Open
+          : images.Empty,
+        width: 70,
+        height: 70,
+      }),
+    }),
+    MakeIconLayer({
+      id: "unlock_items",
+      visible: nyaa["unlock_items"].visible,
+      getIconFunc: (d: any) => ({
+        url: icons?.Unlock_Items
+          ? d.ClassName.includes("Tape")
+            ? icons.Unlock_Items.Tape
+            : d.ClassName.includes("Customization")
+              ? icons.Unlock_Items.Customization
+              : icons.Unlock_Items.Unlock
           : images.Empty,
         width: 70,
         height: 70,

@@ -56,6 +56,7 @@ export const images = {
   },
   Utils: {
     Rotation: `${UTILS_PATH}rotation.avif`,
+    Lock: `${UTILS_PATH}lock.avif`,
   },
   Items: {
     Power_Shard: `${ITEMS_PATH}/Power_Shard.avif`,

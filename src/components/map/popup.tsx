@@ -40,6 +40,7 @@ import { pipe_junctions, pipes } from "@/components/map/popup/pipes";
 import { storage_inv } from "@/components/map/popup/storage";
 import { lizard_doggos } from "@/components/map/popup/lizard_doggos";
 import { LizardDoggo } from "@/types/lizard_doggo";
+import { unlock_items } from "@/components/map/popup/unlock_items";
 
 export const BoolBadge = ({
   bool,
@@ -206,6 +207,11 @@ export const makePopup = (layer: Layer | any, json: IDClassObject) => {
     }
     case "lizard_doggos": {
       const result = lizard_doggos(json as LizardDoggo);
+      popup = result.popup;
+      break;
+    }
+    case "unlock_items": {
+      const result = unlock_items(json as any);
       popup = result.popup;
       break;
     }

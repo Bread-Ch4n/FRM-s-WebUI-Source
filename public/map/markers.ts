@@ -348,5 +348,25 @@ export const generateIcons = async () => {
         utils.templates.extra.x.red,
       ),
     },
+    Unlock_Items: {
+      Tape: await combineThreeImagesToBase64(
+        utils.templates.extra.white,
+        images.Utils.Lock,
+        utils.templates.extra.misc.tape,
+        40,
+      ),
+      Customization: await combineThreeImagesToBase64(
+        utils.templates.extra.white,
+        images.Utils.Lock,
+        utils.templates.extra.misc.customization,
+        40,
+      ),
+      Unlock: await combineThreeImagesToBase64(
+        utils.templates.extra.white,
+        images.Utils.Lock,
+        utils.templates.extra.misc.unlock,
+        40,
+      ),
+    },
   };
 };

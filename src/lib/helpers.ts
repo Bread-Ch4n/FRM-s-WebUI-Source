@@ -169,6 +169,7 @@ export const combineThreeImagesToBase64 = async (
   bgSrc: string,
   centerSrc: string,
   overlaySrc: string,
+  centerSize = 55,
 ) => {
   const canvas = document.createElement("canvas");
   canvas.width = 70;
@@ -184,7 +185,6 @@ export const combineThreeImagesToBase64 = async (
 
   ctx.drawImage(bg, 0, 0, 70, 70);
 
-  const centerSize = 55;
   const cx = (canvas.width - centerSize) / 2;
   const cy = (canvas.height - centerSize) / 2;
   ctx.drawImage(center, cx, cy, centerSize, centerSize);

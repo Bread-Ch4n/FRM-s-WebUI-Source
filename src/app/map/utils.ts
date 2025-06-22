@@ -288,6 +288,13 @@ const layerStuff: layerStuffType = {
     url: "/getPortal",
     visible: true,
   },
+  unlock_items: {
+    icon: images.Markers.Tape,
+    id: "unlock_items",
+    label: "Unlock Items",
+    url: "/getUnlockItems",
+    visible: true,
+  },
 };
 
 export {
