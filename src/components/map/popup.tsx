@@ -41,6 +41,7 @@ import { storage_inv } from "@/components/map/popup/storage";
 import { lizard_doggos } from "@/components/map/popup/lizard_doggos";
 import { LizardDoggo } from "@/types/lizard_doggo";
 import { unlock_items } from "@/components/map/popup/unlock_items";
+import { extractors } from "@/components/map/popup/extractors";
 
 export const BoolBadge = ({
   bool,
@@ -212,6 +213,11 @@ export const makePopup = (layer: Layer | any, json: IDClassObject) => {
     }
     case "unlock_items": {
       const result = unlock_items(json as any);
+      popup = result.popup;
+      break;
+    }
+    case "extractors": {
+      const result = extractors(json as any);
       popup = result.popup;
       break;
     }
