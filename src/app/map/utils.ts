@@ -267,12 +267,20 @@ const layerStuff: layerStuffType = {
     url: "/getSwitches",
     visible: true,
   },
-  extractor: {
+  extractors: {
     icon: images.Markers.Question_Mark,
-    id: "extractor",
+    id: "extractors",
     label: "Extractors",
     url: "/getExtractor",
     visible: true,
+  },
+  fracking_activators: {
+    icon: images.Markers.Question_Mark,
+    id: "fracking_activators",
+    label: "Fracking Activators",
+    url: "/getFrackingActivator",
+    visible: true,
+    with: "extractors",
   },
   lizard_doggos: {
     icon: images.Creatures.Space_Rabbit,

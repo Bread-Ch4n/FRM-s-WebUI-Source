@@ -1210,8 +1210,8 @@ export default function MapPage() {
         : [41, 44, 60],
     ),
     MakePolygonLayer(
-      "extractor",
-      nyaa["extractor"].visible,
+      "extractors",
+      nyaa["extractors"].visible,
       20,
       mapUseInGameColors
         ? (d: any) => hexToRgb(toHex6(d.ColorSlot.PrimaryColor))
@@ -1219,41 +1219,17 @@ export default function MapPage() {
       mapUseInGameColors
         ? (d: any) => hexToRgb(toHex6(d.ColorSlot.SecondaryColor))
         : [41, 44, 60],
-      (
-        d: IDBoundingColorSlotBoxClassObject &
-          BoundingBox &
-          LocationWithRotation,
-      ) => {
-        let lift = d;
-        let bbox = lift.BoundingBox;
-        let location = lift.location;
-        const rotation = -location.rotation % 360;
-
-        const distance = 400;
-        const num1 = 120;
-        const num2 = 80;
-
-        const corners: Point[] = [
-          [bbox.min.x, bbox.min.y * -1],
-          [bbox.max.x, bbox.min.y * -1],
-          [bbox.max.x, bbox.max.y * -1 + distance],
-
-          [bbox.max.x - num1, bbox.max.y * -1 + distance],
-          [bbox.max.x - num1, bbox.max.y * -1 - num2],
-
-          [bbox.min.x + num1, bbox.max.y * -1 - num2],
-          [bbox.min.x + num1, bbox.max.y * -1 + distance],
-          [bbox.min.x, bbox.max.y * -1 + distance],
-        ];
-
-        const center: Point = [location.x, location.y * -1];
-
-        const rotationInRadians = degreesToRadians(rotation + 90);
-
-        return corners.map((corner) =>
-          rotatePoint(corner, center, rotationInRadians),
-        );
-      },
+    ),
+    MakePolygonLayer(
+      "fracking_activators",
+      nyaa["extractors"].visible,
+      20,
+      mapUseInGameColors
+        ? (d: any) => hexToRgb(toHex6(d.ColorSlot.PrimaryColor))
+        : () => [100, 100, 100, 100],
+      mapUseInGameColors
+        ? (d: any) => hexToRgb(toHex6(d.ColorSlot.SecondaryColor))
+        : [41, 44, 60],
     ),
     MakePolygonLayer(
       "storage_inv",
