@@ -53,6 +53,9 @@ export const images = {
   Buildings: {
     Conveyor_Belt_MK1: `${CLASSNAMED_PATH}Build_ConveyorBeltMk1_C.avif`,
     Build_Pipeline_MK1: `${CLASSNAMED_PATH}Build_Pipeline_C.avif`,
+    Desc_GeneratorCoal_C: `${CLASSNAMED_PATH}Desc_GeneratorCoal_C.avif`,
+    Desc_MinerMk3_C: `${CLASSNAMED_PATH}Desc_MinerMk3_C.avif`,
+    Desc_PipeHyper_C: `${CLASSNAMED_PATH}Desc_PipeHyper_C.avif`,
   },
   Utils: {
     Rotation: `${UTILS_PATH}rotation.avif`,
@@ -60,5 +63,8 @@ export const images = {
   },
   Items: {
     Power_Shard: `${ITEMS_PATH}/Power_Shard.avif`,
+  },
+  Patterns: {
+    PatternDesc_Icon_Factory_C: `${CLASSNAMED_PATH}PatternDesc_Icon_Factory_C.avif`,
   },
 };

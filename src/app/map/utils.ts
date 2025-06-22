@@ -1,4 +1,5 @@
 import { images } from "@/public/map/images";
+import { CLASSNAMED_PATH } from "@/public/map/paths";
 
 type Point = number[] | [number, number];
 
@@ -122,7 +123,7 @@ const layerStuff: layerStuffType = {
     visible: false,
   },
   factory: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Patterns.PatternDesc_Icon_Factory_C,
     id: "factory",
     label: "Factory",
     url: "/getFactory",
@@ -158,14 +159,14 @@ const layerStuff: layerStuffType = {
     with: "pipes",
   },
   hypertubes: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Buildings.Desc_PipeHyper_C,
     id: "hypertubes",
     label: "Hypertubes",
     url: "/getHypertube",
     visible: true,
   },
   hypertube_entrances: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Buildings.Desc_PipeHyper_C,
     id: "hypertube_entrances",
     label: "Hypertube Entrances",
     url: "/getHyperEntrance",
@@ -173,7 +174,7 @@ const layerStuff: layerStuffType = {
     with: "hypertubes",
   },
   hypertube_junctions: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Buildings.Desc_PipeHyper_C,
     id: "hypertube_junctions",
     label: "Hypertube Junctions",
     url: "/getHyperJunctions",
@@ -195,7 +196,7 @@ const layerStuff: layerStuffType = {
     visible: true,
   },
   resource_node: {
-    icon: images.Markers.Question_Mark,
+    icon: `${CLASSNAMED_PATH}Desc_OreIron_C.avif`,
     id: "resource_node",
     label: "Resource Node",
     url: "/getResourceNode",
@@ -268,14 +269,14 @@ const layerStuff: layerStuffType = {
     visible: true,
   },
   extractors: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Buildings.Desc_MinerMk3_C,
     id: "extractors",
     label: "Extractors",
     url: "/getExtractor",
     visible: true,
   },
   fracking_activators: {
-    icon: images.Markers.Question_Mark,
+    icon: images.Buildings.Desc_MinerMk3_C,
     id: "fracking_activators",
     label: "Fracking Activators",
     url: "/getFrackingActivator",
