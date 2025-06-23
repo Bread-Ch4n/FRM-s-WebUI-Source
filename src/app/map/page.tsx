@@ -127,7 +127,7 @@ export default function MapPage() {
     baseURL,
     mapUseInGameColors,
     _hasHydrated,
-    fetchSpeed,
+    mapFetchSpeed,
     authToken,
     username,
   } = useSettingsStore();
@@ -196,7 +196,10 @@ export default function MapPage() {
   }
 
   useEffect(() => {
-    const nextUpdate = setTimeout(() => setDataVersion(dataVersion + 1), 1000);
+    const nextUpdate = setTimeout(
+      () => setDataVersion(dataVersion + 1),
+      mapFetchSpeed,
+    );
     return () => clearTimeout(nextUpdate);
   }, [dataVersion]);
 
@@ -1531,7 +1534,7 @@ export default function MapPage() {
         });
         setChatData(data);
       } catch {}
-    }, fetchSpeed);
+    }, 1000);
     return () => {
       clearInterval(interval);
     };
