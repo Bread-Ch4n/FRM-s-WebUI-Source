@@ -4,11 +4,12 @@ import { ProductionAmplifiers } from "@/components/map/popup/utils";
 
 export function extractors(data: any) {
   let popup = {
-    title: data["Name"],
+    title: data.ClassName.startsWith("Build_MinerMk")
+      ? `${data.Name} - ${data.Recipe}`
+      : data.Name,
     description: (
       <div>
         <ul className="my-2 ml-6 list-disc [&>li]:mt-2">
-          <li>Recipe: {data["Recipe"]}</li>
           <li>Clock Speed: {Math.round(data.ManuSpeed * 100) / 100}%</li>
         </ul>
         <div className={"gap-1 flex flex-col"}>
@@ -30,9 +31,9 @@ export function extractors(data: any) {
             }`}
             removeIcons={true}
           />
-          <BoolBadge bool={data["IsConfigured"]} text={"Configured"} />
-          <BoolBadge bool={data["IsProducing"]} text={"Producing"} />
-          <BoolBadge bool={data["IsPaused"]} text={"Paused"} />
+          <BoolBadge bool={data.IsConfigured} text={"Configured"} />
+          <BoolBadge bool={data.IsProducing} text={"Producing"} />
+          <BoolBadge bool={data.IsPaused} text={"Paused"} />
         </div>
         <ProductionAmplifiers data={data} />
       </div>

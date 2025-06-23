@@ -1578,12 +1578,12 @@ export default function MapPage() {
     <div>
       <div className="absolute bottom-0 left-1/2 w-1/2 -translate-x-1/2 flex flex-col z-20">
         <div className={"relative h-10"}>
-          <div className="flex absolute h-10 left-0 z-2 w-65 ">
+          <div className="flex absolute h-10 left-0 z-2 w-65">
             <div
-              className="bg-card border-t border-l p-1 text-sm whitespace-nowrap w-fit rounded-tl-md border-b-0 flex items-center"
+              className="bg-card border-t border-l p-1 text-sm whitespace-nowrap w-55 rounded-tl-md border-b-0 flex items-center"
               style={{ fontSize: "initial" }}
             >
-              <p className={"ml-3"}>Zoom: {mapZoom}</p>
+              <p className={"ml-3 w-full"}>Zoom: {mapZoom}</p>
               <Separator orientation={"vertical"} className={"mx-1"} />
               <Button
                 variant={"secondary"}
@@ -1594,7 +1594,7 @@ export default function MapPage() {
               </Button>
             </div>
             <svg
-              className={"h-10 text-card -ml-[1px]"}
+              className={"h-10 text-card -ml-[1px]  w-10"}
               viewBox="1 0 15 15"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"

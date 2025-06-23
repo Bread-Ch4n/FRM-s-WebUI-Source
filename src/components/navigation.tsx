@@ -11,19 +11,31 @@ import {
   Printer,
   Settings,
 } from "lucide-react";
+import React from "react";
 
 function Navigation() {
   return (
     <Menubar
-      style={{
-        margin: 5,
-        padding: 25,
-        justifyContent: "center",
-        position: "sticky",
-        top: 0,
-        zIndex: 3,
-      }}
+      className={
+        "h-15 z-3 fixed justify-center w-fit left-1/2 -translate-x-1/2 p-5 py-7 rounded-none border-0 border-b top-0"
+      }
     >
+      <svg
+        className={"size-15 text-card ml-[1px] absolute -left-15 scale-[-1]"}
+        viewBox="1 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M16 15 C8 15 8 0 1 0 V15 H8 H16 Z" fill="currentColor" />
+
+        <path
+          d="M16 15 C8 15 8 0 1 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className={"stroke-border"}
+        />
+      </svg>
       <MenubarMenu>
         <Link href="/">
           <Button variant="secondary">
@@ -78,6 +90,22 @@ function Navigation() {
           </Button>
         </Link>
       </MenubarMenu>
+      <svg
+        className={"size-15 text-card mr-[1px] absolute -right-15 scale-y-[-1]"}
+        viewBox="1 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M16 15 C8 15 8 0 1 0 V15 H8 H16 Z" fill="currentColor" />
+
+        <path
+          d="M16 15 C8 15 8 0 1 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          className={"stroke-border"}
+        />
+      </svg>
     </Menubar>
   );
 }
