@@ -16,7 +16,7 @@ const cards = [
   },
   {
     title: "Discord",
-    link: "https://discord.gg/tv3jbJW3RX",
+    link: "https://discord.com/invite/c6446HTHpu",
     description: "The official discord server",
   },
 ];
