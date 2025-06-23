@@ -1,14 +1,6 @@
 export type RGB = [number, number, number];
 export type HSL = [number, number, number];
 
-export function getMk(name: string): number {
-  try {
-    return +(name.match(/Mk[., ](\d+)/)?.[1] ?? "1");
-  } catch (e) {
-    return 1;
-  }
-}
-
 function getMkInternal(name: string): number {
   try {
     return +(name.match(/Mk[., ](\d+)/)?.[1] ?? NaN);

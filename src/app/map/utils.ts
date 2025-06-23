@@ -70,6 +70,13 @@ const layerStuff: layerStuffType = {
     url: "/getArtifacts",
     visible: false,
   },
+  map_markers: {
+    icon: images.Stamps.Mark,
+    id: "map_markers",
+    label: "Map Markers",
+    url: "/getMapMarkers",
+    visible: true,
+  },
   belts: {
     icon: images.Buildings.Conveyor_Belt_MK1,
     id: "belts",

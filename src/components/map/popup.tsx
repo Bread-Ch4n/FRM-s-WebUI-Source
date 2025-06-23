@@ -42,6 +42,7 @@ import { lizard_doggos } from "@/components/map/popup/lizard_doggos";
 import { LizardDoggo } from "@/types/lizard_doggo";
 import { unlock_items } from "@/components/map/popup/unlock_items";
 import { extractors } from "@/components/map/popup/extractors";
+import { map_markers } from "@/components/map/popup/map_markers";
 
 export const BoolBadge = ({
   bool,
@@ -219,6 +220,11 @@ export const makePopup = (layer: Layer | any, json: IDClassObject) => {
     case "extractors": {
       const result = extractors(json as any);
       popup = result.popup;
+      break;
+    }
+    case "map_markers": {
+      const result = map_markers(json as any);
+      popup.title = result.popup.title;
       break;
     }
     default: {

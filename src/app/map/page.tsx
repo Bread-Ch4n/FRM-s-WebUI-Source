@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useCallback, useEffect, useState } from "react";
 import { Check, Layers, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -70,11 +69,9 @@ import { Input } from "@/components/ui/input";
 import { AnimatePresence, motion } from "motion/react";
 import { cubicBezier } from "motion";
 import Link from "next/link";
-import { generateIcons } from "@/public/map/markers";
+import { generateIcons, mapMarkers } from "@/public/map/markers";
 import { images } from "@/public/map/images";
-import { CLASSNAMED_PATH } from "@/public/map/paths";
-import { vehicles } from "@/components/map/popup/vehicles";
-import { players } from "@/components/map/popup/players";
+import { CLASSNAMED_PATH, utils } from "@/public/map/paths";
 import { Drone } from "@/types/drone";
 import { Train } from "@/types/trains";
 import { TrainStatus } from "@/enums/train";
@@ -83,7 +80,6 @@ import { Portal } from "@/types/portal";
 import { HubTerminal } from "@/types/hub-terminal";
 import { buildings } from "@/lib/buildings";
 import { SpaceElevator } from "@/types/space-elevator";
-
 const slugClassNames = ["BP_Crystal_C", "BP_Crystal_mk2_C", "BP_Crystal_mk3_C"];
 
 const slugTier = {
@@ -248,13 +244,17 @@ export default function MapPage() {
     filterRange,
     getIconFunc,
     iconUrl,
+    getColor,
+    extra,
   }: {
     id: string;
     visible: boolean;
     getFilterValue?: any;
     filterRange?: any;
     getIconFunc?: (d: any) => any;
+    getColor?: (d: any) => any;
     iconUrl?: string;
+    extra?: object;
   }): any {
     let options: any = {
       autoHighlight: true,
@@ -285,6 +285,8 @@ export default function MapPage() {
         extensions: [new DataFilterExtension({ filterSize: 1 })],
       };
     }
+    if (getColor != null) options = { ...options, getColor: getColor };
+    if (extra != null) options = { ...options, extra };
     return new IconLayer(options);
   }
 
@@ -1322,6 +1324,30 @@ export default function MapPage() {
         width: 70,
         height: 70,
       }),
+    }),
+    new IconLayer({
+      id: "map_markers",
+      data: baseURL + nyaa["map_markers"].url + `#${dataVersion}`,
+      getIcon: (d: any) => {
+        return {
+          url:
+            mapMarkers[d.IconID as keyof typeof mapMarkers] ??
+            images.MonochromeIcons.Portal_Satellite,
+          width: 128,
+          height: 128,
+          mask: !Object.values(images.Stamps).includes(
+            mapMarkers[d.IconID as keyof typeof mapMarkers],
+          ),
+        };
+      },
+      getPosition: (d: any) => [d.location.x, d.location.y * -1],
+      getSize: 40,
+      getColor: (d: any) => {
+        const hex6 = toHex6(d.ColorSlot);
+        const color = hexToRgb(hex6);
+        return color;
+      },
+      pickable: true,
     }),
     new PlayerLayer({
       uwu: "uwu",

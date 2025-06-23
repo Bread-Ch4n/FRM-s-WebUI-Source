@@ -2,8 +2,9 @@ export const BASE_PATH = "/map/";
 
 const NORMAL_PATH = `${BASE_PATH}normal/`;
 export const ITEMS_PATH = `${NORMAL_PATH}items/`;
-
 export const MARKERS_PATH = `${NORMAL_PATH}markers/`;
+export const STAMPS_PATH = `${NORMAL_PATH}stamps/`;
+export const MONOCHROMEICONS_PATH = `${NORMAL_PATH}MonochromeIcons/`;
 
 export const CLASSNAMED_PATH = `${BASE_PATH}classnamed/`;
 
