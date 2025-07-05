@@ -1,6 +1,8 @@
 # Changelog
 
 
+## [1.4.1](https://github.com/Bread-Ch4n/FRM-s-WebUI-Source/compare/v1.4.0...v1.4.1) (2025-07-05)
+
 ## [1.4.0](https://github.com/Bread-Ch4n/FRM-s-WebUI-Source/compare/v1.2.0...v1.4.0) (2025-06-14)
 
 
