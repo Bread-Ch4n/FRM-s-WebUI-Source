@@ -118,7 +118,6 @@ export default function MapPage() {
   const defaultZRange = [-25000, 200000];
   const [zRange, setZRange] = useState<any>(defaultZRange);
 
-  const [dataVersion, setDataVersion] = useState<number>(0);
   const {
     baseURL,
     mapUseInGameColors,
@@ -127,6 +126,42 @@ export default function MapPage() {
     authToken,
     username,
   } = useSettingsStore();
+
+  const [dataVersion, setDataVersion] = useState<number>(0);
+  const [data, setData] = useState<any>({});
+
+  useEffect(() => {
+    async function run() {
+      if (!_hasHydrated) return null;
+      const endpoints = Object.entries(layerStuff).map(([key, layer]) =>
+        layer.url.replace("/", ""),
+      );
+      const socket = new WebSocket("ws://localhost:5960");
+
+      socket.onopen = () => {
+        socket.send(
+          JSON.stringify({ action: "subscribe", endpoints: endpoints }),
+        );
+      };
+
+      socket.onmessage = (event) => {
+        const {
+          endpoint,
+          data,
+        }: {
+          endpoint: string;
+          data: any;
+        } = JSON.parse(event.data);
+
+        setData((prev) => ({
+          ...prev,
+          [endpoint]: data,
+        }));
+      };
+    }
+
+    run();
+  }, [_hasHydrated]);
 
   async function buildFilters() {
     let rawData;
@@ -1327,7 +1362,11 @@ export default function MapPage() {
     }),
     new IconLayer({
       id: "map_markers",
-      data: baseURL + nyaa["map_markers"].url + `#${dataVersion}`,
+      data: () => {
+        const dat = data["getMapMarkers"]?.data;
+        console.log(dat);
+        return dat;
+      },
       getIcon: (d: any) => {
         return {
           url:
